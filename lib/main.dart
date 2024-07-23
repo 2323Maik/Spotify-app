@@ -1,9 +1,23 @@
+import 'package:flutter/foundation.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:path_provider/path_provider.dart';
+
 import 'package:flutter/material.dart';
+
 import 'package:spotify/core/configs/themes/app_themes.dart';
+import 'package:spotify/presentation/choose_mode/pages/choose_mode.dart';
 import 'package:spotify/presentation/intro/pages/get_started.dart';
 import 'package:spotify/presentation/splash/pages/splash.dart';
 
-void main() => runApp(Spotify());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  HydratedBloc.storage = await HydratedStorage.build(
+    storageDirectory: kIsWeb
+        ? HydratedStorage.webStorageDirectory
+        : await getApplicationDocumentsDirectory(),
+  );
+  runApp(Spotify());
+}
 
 class Spotify extends StatelessWidget {
   const Spotify({super.key});
@@ -22,6 +36,7 @@ class Spotify extends StatelessWidget {
 
       routes: {
         GetStarted.routeName: (context) => GetStarted(),
+        ChooseModePage.routeName: (context) => const ChooseModePage(),
       },
     );
   }
