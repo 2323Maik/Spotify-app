@@ -4,4 +4,5 @@ class AppImages {
   // ignore: prefer_interpolation_to_compose_strings
   static const String introBG = basePath + 'intro_bg.png';
   static const String choeseModeBG = basePath + 'choose_mode_bg.png';
+  static const String authBG = basePath + 'auth_bg.png';
 }

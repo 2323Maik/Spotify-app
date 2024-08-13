@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:spotify/core/configs/themes/app_themes.dart';
+import 'package:spotify/presentation/auth/pages/signUpandsignIn.dart';
 import 'package:spotify/presentation/choose_mode/bloc/theme_cubit.dart';
 import 'package:spotify/presentation/choose_mode/pages/choose_mode.dart';
 import 'package:spotify/presentation/intro/pages/get_started.dart';
@@ -40,6 +41,7 @@ class SpotifyApp extends StatelessWidget {
             routes: {
               GetStarted.routeName: (context) => GetStarted(),
               ChooseModePage.routeName: (context) => const ChooseModePage(),
+              SignUpAndSigInPage.routeName: (context) => SignUpAndSigInPage(),
             },
           );
         },
